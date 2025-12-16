@@ -1,0 +1,1339 @@
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap');
+
+/* --- GLOBAL STYLES --- */
+
+body {
+    /* Keeping the original image */
+    background-image: url("assets/photos/eventwallpaper.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Setting a default font for consistency */
+    font-family: 'Poppins', sans-serif; 
+}
+
+/* Base styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* --- HEADER --- */
+/* --- HEADER STYLES --- */
+.header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 40px; /* Increased padding for better spacing */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    /* NEW: Distribute items for left-center-right layout */
+    justify-content: space-between; 
+    
+    /* Using a lighter cream/white background for the header */
+    background: rgba(255, 255, 255, 0.95); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(17, 44, 44, 0.1); /* Subtle border using the deep navy tone */
+}
+
+/* LOGO (Center Element) */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    /* Allows the link to stretch correctly in the header's flex layout */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Inherit the same growth property as the logo div */
+}
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; /* Slightly larger logo */
+    font-weight: 600;
+    cursor: pointer;
+    color: #112C2C; /* NEW DEEP NAVY for main text */
+    flex-grow: 1; /* Allows it to occupy center space */
+    text-align: center;
+    z-index: 200; /* Keep logo above nav elements if overlapping */
+}
+
+.logo span {
+    color: #DEA327; /* NEW PRIMARY ACCENT (Gold) */
+}
+
+/* NAVIGATION Containers */
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    justify-content: flex-start;
+    flex-basis: 300px; /* Give the left side a fixed width for balance */
+}
+
+.nav-right {
+    justify-content: flex-end;
+    flex-basis: 600px; /* Give the right side more space for more links + button */
+    gap: 20px; /* Space between links and button */
+}
+
+/* NAVIGATION Links List */
+.nav-left ul, .nav-right ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px; /* Spaced out links */
+}
+
+.nav-left ul li a, .nav-right ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #112C2C; /* NEW DEEP NAVY */
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect: Bottom Border */
+.nav-left ul li a::after, .nav-right ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #DEA327; /* NEW PRIMARY ACCENT (Gold) */
+    transition: width 0.3s ease;
+}
+
+.nav-left ul li a:hover::after, .nav-right ul li a:hover::after {
+    width: 100%;
+}
+
+/* Call-to-Action Button in Header */
+.btn-header {
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #DEA327; /* NEW PRIMARY ACCENT (Gold) */
+    color: #112C2C; /* Text uses Deep Navy for contrast */
+    text-decoration: none;
+    border: 1px solid #DEA327;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-header:hover {
+    background: #112C2C; /* Hover to Deep Navy */
+    color: #DEA327; /* Text changes to Gold */
+    border-color: #DEA327; 
+}
+
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 1200px) {
+    /* Adjust spacing for smaller screens */
+    .nav-left ul, .nav-right ul {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        padding: 15px 20px;
+        /* Mobile header is flat, no three-column structure */
+        justify-content: space-between; 
+    }
+    
+    .nav-left, .nav-right, .btn-header {
+        display: none; /* Hide desktop nav and button */
+    }
+
+    .logo {
+        /* Align logo back to the left on mobile */
+        text-align: left;
+    }
+    
+    .hamburger {
+        display: flex; /* Show hamburger */
+    }
+
+    /* Full-screen overlay navigation on mobile */
+    .nav-mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(17, 44, 44, 0.95); /* Semi-transparent Deep Navy Overlay */
+        z-index: 999;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-mobile-overlay.active {
+        display: flex;
+    }
+
+    .nav-mobile-overlay a {
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        padding: 10px 0;
+        transition: color 0.3s;
+    }
+
+    .nav-mobile-overlay a:hover {
+        color: #DEA327; /* Gold hover on mobile */
+    }
+}
+
+
+/* --- HERO SECTION --- */
+
+.hero {
+    position: relative;
+    min-height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 40px;
+    background: url('assets/photos/hero.png') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+/* soft overlay to make text readable - using new cream */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(208, 204, 180, 0.95) 10%, /* NEW LIGHT CREAM BASE */
+            rgba(208, 204, 180, 0.75) 40%, /* NEW LIGHT CREAM BASE */
+            rgba(208, 204, 180, 0.00) 100% 
+        );
+    z-index: 1;
+}
+
+/* actual hero content card - using lighter cream variant for inner card */
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: rgba(245, 241, 235, 0.92); /* Lighter Cream Variant */
+    padding: 70px 80px; 
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.09);
+    border: 1px solid rgba(222, 163, 39, 0.18); /* NEW PRIMARY ACCENT */
+}
+
+/* TAGLINE */
+.hero-tagline {
+    font-size: 50px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* MAIN HERO TITLE */
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    line-height: 1.4;
+    margin: 20px 0 30px;
+    color: #2b2b2b; /* Dark text remains */
+    font-weight: 600;
+}
+
+/* SUBTEXT */
+.hero-subtext {
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    color: #444; /* Darker grey text remains */
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+/* BUTTONS */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Filled button */
+.btn-primary {
+    padding: 14px 32px;
+    border-radius: 999px;
+    background: #112C2C; /* NEW PRIMARY DARK */
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #112C2C; /* NEW PRIMARY DARK */
+    transition: 0.25s ease;
+    font-size: 24px;
+}
+
+.btn-primary:hover {
+    background: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+    border-color: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+}
+
+/* Outline button */
+.btn-outline {
+    padding: 14px 32px;
+    border-radius: 999px;
+    background: #112C2C; /* NEW PRIMARY DARK */
+    color: #fff;
+    border: 1px solid #112C2C; /* NEW PRIMARY DARK */
+    text-decoration: none;
+    transition: 0.25s ease;
+    font-size: 24px;
+}
+
+.btn-outline:hover {
+    background: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+    border-color: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+    color: #fff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .hero-inner {
+        padding: 30px 18px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero-subtext {
+        font-size: 14px;
+    }
+}
+
+
+/* --- ABOUT PREVIEW SECTION --- */
+
+.about-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 70px 50px;
+    box-sizing: border-box;
+
+    width: 100%;
+    min-height: 100vh;
+    margin: 80px 0 0 0;
+    /* NEW PRIMARY BACKGROUND */
+    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%); 
+    position: relative;
+    z-index: 2;
+}
+
+.about-preview .about-img {
+    flex: 0 0 58%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-preview .about-img img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    /* NEW PRIMARY ACCENT */
+    border: 1px solid rgba(222, 163, 39, 0.18); 
+    display: block;
+}
+
+.about-preview .about-text {
+    flex: 1;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.about-preview .about-text p {
+    font-size: 42px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 28px;
+    max-width: 600px;
+}
+
+.about-preview .about-text .about-btn {
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: #112C2C; /* NEW PRIMARY DARK */
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #112C2C; /* NEW PRIMARY DARK */
+    display: inline-block;
+    font-size: 16px;
+    white-space: nowrap;
+    transition: 0.25s ease;
+}
+
+.about-preview .about-text .about-btn:hover {
+    background: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+    border-color: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+}
+
+/* --- ABOUT PREVIEW RESPONSIVE STYLES (Kept existing structure) --- */
+@media (max-width: 900px) {
+    .about-preview {
+        flex-direction: column;
+        padding: 40px 24px;
+        text-align: center;
+        margin: -30px 16px 50px;
+    }
+    /* ... (rest of responsive styles) ... */
+    .about-preview .about-img img {
+        max-width: 100%;
+    }
+
+    .about-preview .about-text p {
+        margin-inline: auto;
+        font-size: 16px;
+    }
+
+    .about-preview .about-text {
+        align-items: center;
+    }
+}
+@media (max-width: 1100px) {
+    .about-preview {
+        padding: 50px;
+        gap: 36px;
+    }
+
+    .about-preview .about-img {
+        flex: 0 0 58%;
+    }
+
+    .about-preview .about-text {
+        flex: 0 0 38%;
+    }
+
+    .about-preview .about-text h2 {
+        font-size: 44px;
+    }
+}
+@media (max-width: 900px) {
+    .about-preview {
+        flex-direction: column;
+        min-height: auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .about-preview .about-img {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .about-preview .about-img img {
+        max-width: 520px;
+    }
+
+    .about-preview .about-text {
+        flex: 0 0 auto;
+        padding-top: 20px;
+    }
+
+    .about-preview .about-text h2 {
+        font-size: 36px;
+    }
+
+    .about-preview .about-text p {
+        font-size: 18px;
+        margin-inline: auto;
+    }
+}
+
+
+/* --- SERVICES SECTION (HOME PREVIEW) --- */
+
+.services-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* NEW PRIMARY BACKGROUND */
+    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%);
+}
+
+.services-inner {
+    width: 95%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 180px 140px;
+    background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    /* NEW PRIMARY ACCENT */
+    border: 1px solid rgba(222, 163, 39, 0.25); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.services-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 12px;
+    color: #2b2b2b;
+}
+
+.services-tagline {
+    text-align: center;
+    font-size: 50px;
+    color: #555;
+    max-width: 820px;
+    margin: 0 auto 36px;
+}
+
+/* GRID OF CARDS */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 44px;
+    margin-bottom: 64px;
+}
+
+.service-card {
+    background: #ffffff; /* Keeping white for sharp card contrast */
+    border-radius: 14px;
+    padding: 36px 32px 38px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.10);
+    min-height: var(--about-img-height, 480px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* service card image */
+.service-card .service-img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.service-card .service-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.07);
+}
+
+.service-card h3 {
+    font-size: 40px;
+    margin-bottom: 12px;
+    color: #2b2b2b;
+}
+
+.service-card p {
+    font-size: 25px;
+    line-height: 1.9;
+    color: #555;
+}
+
+/* VIEW ALL SERVICES BUTTON */
+.services-link-wrap {
+    text-align: center;
+}
+
+.services-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 999px;
+    background: #112C2C; /* NEW PRIMARY DARK */
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    border: 1px solid #112C2C; /* NEW PRIMARY DARK */
+    transition: 0.25s ease;
+}
+
+.services-btn:hover {
+    background: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+    border-color: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* --- REVIEWS SECTION (HOME PREVIEW) --- */
+
+.reviews-section {
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    /* NEW PRIMARY BACKGROUND */
+    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%); 
+}
+
+.reviews-inner {
+    width: 95%;
+    max-width: 1800px; 
+    margin: 0 auto;
+    padding: 180px 140px; 
+    background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
+    border-radius: 18px; 
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    /* NEW PRIMARY ACCENT */
+    border: 1px solid rgba(222, 163, 39, 0.25); 
+}
+
+.reviews-inner h2 {
+    font-family: 'Playfair Display', serif; 
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 12px;
+    color: #2b2b2b;
+}
+
+.reviews-tagline {
+    text-align: center; 
+    font-size: 50px;
+    color: #555;
+    max-width: 820px;
+    margin: 0 auto 64px; 
+}
+
+/* reviews cards layout */ 
+.reviews-grid {
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px;
+    margin-bottom: 64px; 
+}
+
+.review-card {
+    background: #ffffff; /* Keeping white for sharp card contrast */
+    border-radius: 14px; 
+    padding: 40px 36px 45px;
+    border: 1px solid rgba(0, 0, 0, 0.04); 
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.10);
+}
+
+.review-stars {
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+    margin-bottom: 20px;
+}
+
+.review-text {
+    font-size: 28px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.review-name {
+    font-size: 24px;
+    font-weight: 500;
+    color: #666;
+}
+
+/* "Read All Reviews" button */
+.reviews-link-wrap {
+    text-align: center;
+}
+
+.reviews-btn {
+    display: inline-block; 
+    padding: 14px 36px;
+    border-radius: 999px;
+    background: #112C2C; /* NEW PRIMARY DARK */
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px; 
+    border: 1px solid #112C2C; /* NEW PRIMARY DARK */
+    transition: 0.25s ease;
+}
+
+.reviews-btn:hover {
+    background: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+    border-color: #126261; /* NEW SECONDARY DARK (Deep Teal) */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    .reviews-inner {
+        padding: 40px 20px;
+    }
+    .reviews-inner h2 {
+        font-size: 48px;
+    }
+    .reviews-tagline {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    .review-text {
+        font-size: 18px;
+    }
+}
+
+
+/* --- ABOUT.HTML SPECIFIC STYLES --- */ 
+.about-preview#full-about .about-text p {
+    font-size: 28px; 
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.about-preview#full-about .about-text p:first-child {
+    font-size: 48px; 
+    line-height: 1.6;
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 30px;
+}
+
+/* Image border styling for the profile picture */
+.about-preview#full-about .about-img img {
+    /* NEW PRIMARY ACCENT */
+    border: 10px solid rgba(222, 163, 39, 0.5); 
+}
+
+/* Responsive adjustment for the full about page */
+@media (max-width: 900px) {
+    .about-preview#full-about .about-text p {
+        font-size: 18px; 
+    }
+    .about-preview#full-about .about-text p:first-child {
+        font-size: 30px; 
+    }
+}
+
+
+/* --- PORTFOLIO PAGE STYLES --- */
+.portfolio-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* NEW PRIMARY BACKGROUND */
+    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%);
+}
+
+.portfolio-inner {
+    width: 95%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 180px 140px;
+    background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    /* NEW PRIMARY ACCENT */
+    border: 1px solid rgba(222, 163, 39, 0.25);
+}
+
+.portfolio-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 12px;
+    color: #2b2b2b;
+}
+
+.portfolio-tagline {
+    text-align: center;
+    font-size: 50px;
+    color: #555;
+    max-width: 820px;
+    margin: 0 auto 64px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 44, 44, 0.7); /* NEW PRIMARY DARK (Deep Navy) with opacity */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.portfolio-overlay p {
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 900px) {
+    .portfolio-inner {
+        padding: 40px 20px;
+    }
+    .portfolio-inner h2 {
+        font-size: 48px;
+    }
+    .portfolio-tagline {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .portfolio-item img {
+        height: 300px;
+    }
+    .portfolio-overlay h3 {
+        font-size: 28px;
+    }
+}
+
+
+/* --- REVIEWS.HTML SPECIFIC STYLES (Full Reviews Page) --- */
+
+.full-reviews-section {
+    width: 100%;
+    /* Similar full-page visual weight as Services/Portfolio sections */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* NEW PRIMARY BACKGROUND */
+    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%);
+}
+
+.full-reviews-inner {
+    /* Reusing the large, centered card design */
+    width: 95%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 180px 140px;
+    background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    /* NEW PRIMARY ACCENT */
+    border: 1px solid rgba(222, 163, 39, 0.25);
+}
+
+.full-reviews-grid {
+    display: grid;
+    /* Two-column layout for detailed review cards */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+}
+
+.full-review-card {
+    background: #ffffff; /* Keeping white for sharp card contrast */
+    border-radius: 18px;
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+/* Image section for the review's associated event photo */
+.review-photo-container {
+    margin-bottom: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Optional: Add a gold outline to emphasize the event photo - NEW PRIMARY ACCENT */
+    border: 4px solid rgba(222, 163, 39, 0.2); 
+}
+
+.review-photo-container img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    display: block;
+}
+
+/* Text and metadata section */
+.full-review-stars {
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+    margin-bottom: 15px;
+}
+
+.full-review-text {
+    font-size: 22px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+.full-review-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: #2b2b2b;
+    margin-top: auto; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .full-reviews-inner {
+        padding: 40px 20px;
+    }
+    .full-reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    .full-review-text {
+        font-size: 18px;
+    }
+    .review-photo-container img {
+        height: 250px;
+    }
+}
+
+
+/* --- CONTACT.HTML SPECIFIC STYLES --- */
+
+.contact-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* NEW PRIMARY BACKGROUND */
+    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%);
+}
+
+.contact-inner {
+    width: 95%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 100px;
+    background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    /* NEW PRIMARY ACCENT */
+    border: 1px solid rgba(222, 163, 39, 0.25);
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.contact-info {
+    text-align: center;
+    padding: 20px;
+    background: #fdfaf7; /* Very light cream for info box */
+    border-radius: 12px;
+    /* NEW PRIMARY ACCENT */
+    border: 1px solid rgba(222, 163, 39, 0.1); 
+}
+
+.contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.contact-info a {
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+}
+
+/* Form Styles */
+.inquiry-form {
+    padding: 30px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select { /* ADDED select for consistency */
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fcfcfc; /* Slight off-white background for input */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #DEA327; /* Gold accent */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(222, 163, 39, 0.2); /* Gold glow */
+}
+
+/* Styling for the Send Request button */
+.contact-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    
+    /* Use Deep Navy (#112C2C) as primary background */
+    background: #112C2C;
+    color: #fff;
+    border: 1px solid #112C2C;
+    border-radius: 8px; 
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.contact-button:hover {
+    /* Hover to Gold accent color */
+    background: #DEA327;
+    color: #112C2C; /* Deep Navy text for contrast */
+    border-color: #DEA327;
+}
+/* --- FORM RESPONSE/FEEDBACK STYLES --- */
+
+.form-response {
+    margin-top: 20px;
+    padding: 0; /* Set initial padding to 0 */
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    
+    /* Transition for smooth show/hide */
+    transition: opacity 0.3s ease, padding 0.3s ease, height 0.3s ease;
+    
+    /* Initial state: hidden */
+    opacity: 0; 
+    height: 0;
+    overflow: hidden;
+}
+
+/* Visibility State */
+.form-response.show {
+    opacity: 1;
+    height: auto;
+    padding: 15px; /* Apply padding when shown */
+}
+
+/* Success Message Styling (Teal/Green tone for positive feedback) */
+.form-response.success {
+    color: #126261; /* Darker Teal text */
+    background-color: #e0f2f1; /* Very light, soft teal background */
+    border: 1px solid #27AEA6; /* Teal border */
+}
+
+/* Error/Failure Message Styling (Red tone for negative feedback) */
+.form-response.error {
+    color: #7E0605; /* Dark Red text */
+    background-color: #fcebeb; /* Very light, soft red background */
+    border: 1px solid #7E0605; /* Dark Red border */
+}
+
+/* Responsive adjustments */
+@media (min-width: 900px) {
+    .contact-form-grid {
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+    }
+    .contact-info {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-inner {
+        padding: 40px 20px;
+    }
+    .inquiry-form {
+        padding: 20px;
+    }
+}
+
+/* --- SUCCESS MESSAGE PAGE STYLES (for success.html) --- */
+
+.success-message-section {
+    min-height: 70vh; /* Ensures the card is centered vertically on the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.success-card {
+    max-width: 600px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(17, 44, 44, 0.15); /* Soft shadow using Deep Navy */
+    border-top: 5px solid #DEA327; /* Gold accent border at the top */
+}
+
+.success-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.success-card h2 {
+    font-size: 32px;
+    color: #112C2C; /* Deep Navy */
+    margin-bottom: 15px;
+}
+
+.success-subtext {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.success-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Reusing existing button styles but defining a secondary option */
+
+.btn-primary {
+    /* Uses the deep navy style for a main CTA */
+    background: #112C2C;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background: #DEA327;
+    color: #112C2C;
+}
+
+.btn-secondary {
+    /* Uses the gold accent as a border for a secondary CTA */
+    background: transparent;
+    color: #112C2C; /* Deep Navy text */
+    border: 2px solid #DEA327;
+    padding: 10px 23px; /* Adjusted padding to account for border thickness */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #DEA327;
+    color: #112C2C;
+}
+
+/* Make sure the success message looks good on mobile */
+@media (max-width: 600px) {
+    .success-card {
+        padding: 30px 20px;
+    }
+    .success-card h2 {
+        font-size: 24px;
+    }
+    .success-actions {
+        flex-direction: column;
+    }
+}
+
+/* --- FOOTER STYLES --- */
+.footer {
+    background-color: #112C2C; /* NEW PRIMARY DARK */
+    color: #fff;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #DEA327; /* NEW PRIMARY ACCENT */
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+}
+
+/* --- FOOTER SOCIAL LINKS STYLES (for PNG Images) --- */
+.social-links a {
+    /* Link container: defines hover area and initial size */
+    display: block;
+    width: 32px; 
+    height: 32px; 
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a img {
+    /* The actual image within the link */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.social-links a:hover {
+    /* A simple hover effect for images */
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #3d5d5d; /* A slightly lighter shade of deep navy for separation */
+    font-size: 14px;
+}

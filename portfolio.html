@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portfolio | Luxury Weddings, Corporate & Social Events</title>
+    
+    <meta name="description" content="View the RaunaKcurated portfolio featuring elegant event designs, stunning wedding planning execution, and sophisticated corporate event styling. Your vision starts here.">
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="canonical" href="https://raunakcurated.com/portfolio.html">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <nav class="nav-left">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+
+        <a href="index.html" class="logo-link">
+            <div class="logo">Rauna<span>K</span>curated</div>
+        </a>
+        <nav class="nav-right">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn-header">Book Consultation</a>
+        </nav>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="portfolio-hero">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-inner">
+                <p class="hero-tagline">Our Signature Moments</p>
+
+                <h1>A Gallery of Celebrations</h1>
+
+                <p class="hero-subtext" style="font-size: 36px; max-width: 900px;">
+                    Explore our curated collection of weddings, corporate events, and private gatherings.
+                </p>
+            </div>
+        </section>
+
+        <section class="portfolio-section">
+            <div class="portfolio-inner">
+
+                <div class="portfolio-filter">
+                    <a href="#" class="filter-btn active">All Events</a>
+                    <a href="#" class="filter-btn">Weddings</a>
+                    <a href="#" class="filter-btn">Corporate</a>
+                    <a href="#" class="filter-btn">Private Parties</a>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="assets/photos/placeholder-1.jpg" alt="Event Photo Placeholder 1">
+                        <div class="overlay">Engagement Party, 2024</div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="assets/photos/placeholder-2.jpg" alt="Event Photo Placeholder 2">
+                        <div class="overlay">Corporate Gala, 2023</div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="assets/photos/placeholder-3.jpg" alt="Event Photo Placeholder 3">
+                        <div class="overlay">Wedding Reception, 2024</div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="assets/photos/placeholder-4.jpg" alt="Event Photo Placeholder 4">
+                        <div class="overlay">Birthday Celebration, 2023</div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="assets/photos/placeholder-5.jpg" alt="Event Photo Placeholder 5">
+                        <div class="overlay">Luxury Picnic, 2024</div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img src="assets/photos/placeholder-6.jpg" alt="Event Photo Placeholder 6">
+                        <div class="overlay">Product Launch, 2024</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><a href="mailto:sameea@raunakcurated.com">sameea@raunakcurated.com</a></p>
+                <p><a href="tel:+16477071964">+1 (647) 707-1964</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/raunakcurated" target="_blank" title="Instagram">
+                        <img src="assets/photos/instagram.png" alt="Instagram Icon">
+                    </a>
+                    <a href="https://www.facebook.com/raunakcurated" target="_blank" title="Facebook">
+                        <img src="assets/photos/facebook.png" alt="Facebook Icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 RaunaKcurated. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector(".hamburger");
+        const overlay = document.querySelector(".nav-mobile-overlay");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            overlay.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>

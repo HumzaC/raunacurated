@@ -1,0 +1,22 @@
+# --- 1. Basic Security Headers ---
+[[headers]]
+  for = "/*" # Apply these headers to all pages
+  [headers.values]
+    # Enforce HTTPS
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    # Prevent clickjacking
+    X-Frame-Options = "DENY" 
+    # Prevent MIME-sniffing
+    X-Content-Type-Options = "nosniff" 
+    # Basic Content Security Policy
+    # This specifically allows content from your domain ('self') and Google Fonts/assets.
+    Content-Security-Policy = "default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://www.google-analytics.com;"
+
+# --- 2. Form Redirect (Optional, only if you create success.html) ---
+# If you don't add the action="/success.html" to the form, this will redirect.
+# If you do add the action attribute, this block is not strictly necessary but is good practice.
+[[redirects]]
+  from = "/contact"
+  to = "/success"
+  status = 302
+  force = true

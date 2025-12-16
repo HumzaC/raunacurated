@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry Received! | RaunaKcurated</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav-left">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+
+        <a href="index.html" class="logo-link">
+            <div class="logo">Rauna<span>K</span>curated</div>
+        </a>
+        <nav class="nav-right">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn-header">Book Consultation</a>
+        </nav>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <section class="success-message-section">
+            <div class="success-card">
+                <div class="success-icon">✨</div> 
+                
+                <h2>Thank You! Your Inquiry is Received.</h2>
+                
+                <p class="success-subtext">
+                    We appreciate you reaching out to RaunaKcurated. We have successfully received your message and will review your request shortly.
+                </p>
+
+                <p>
+                    We aim to respond to all inquiries within 1-2 business days. Please check your email inbox for a personal reply from our team.
+                </p>
+
+                <div class="success-actions">
+                    <a href="index.html" class="btn-primary">Return to Homepage</a>
+                    <a href="portfolio.html" class="btn-secondary">View Our Portfolio</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class="nav-mobile-overlay">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn-primary" style="margin-top: 20px;">Book Consultation</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><a href="mailto:sameea@raunakcurated.com">sameea@raunakcurated.com</a></p>
+                <p><a href="tel:+16477071964">+1 (647) 707-1964</a></p>
+            </div>
+
+            <div class="social-links" style="margin-top: 15px;">
+                <a href="https://www.instagram.com/raunakcurated" target="_blank" title="Instagram">
+                    <img src="assets/photos/instagram.png" alt="Instagram Icon">
+                </a>
+                <a href="https://www.facebook.com/raunakcurated" target="_blank" title="Facebook">
+                    <img src="assets/photos/facebook.png" alt="Facebook Icon">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 RaunaKcurated. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector(".hamburger");
+        const overlay = document.querySelector(".nav-mobile-overlay");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            overlay.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
