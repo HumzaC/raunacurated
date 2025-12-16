@@ -17,6 +17,6 @@
 # If you do add the action attribute, this block is not strictly necessary but is good practice.
 [[redirects]]
   from = "/contact"
-  to = "/success"
-  status = 302
+  to = "/contact.html"
+  status = 200
   force = true
