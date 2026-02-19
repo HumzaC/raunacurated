@@ -575,6 +575,7 @@ h1, h2, h3 {
     max-width: 1800px;
     margin: 0 auto;
     padding: 180px 140px;
+    padding-bottom: 100px;
     background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
     border-radius: 18px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
@@ -602,11 +603,11 @@ h1, h2, h3 {
 }
 
 /* GRID OF CARDS */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(320px, 1fr));
-    gap: 44px;
-    margin-bottom: 64px;
+.services-grid{
+  display: grid;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
 }
 
 .service-card {
@@ -616,17 +617,21 @@ h1, h2, h3 {
     padding: 36px 32px 38px;
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.10);
-    min-height: var(--about-img-height, 480px);
+    height: auto; 
+    min-height: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 /* service card image */
-.service-card .service-img {
-    width: 100%;
-    margin-bottom: 20px;
+.service-card .service-img img{
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
 }
+
 
 .service-card .service-img img {
     width: 100%;
@@ -650,9 +655,12 @@ h1, h2, h3 {
 }
 
 /* VIEW ALL SERVICES BUTTON */
-.services-link-wrap {
+.services-link-wrap{
+    margin-top: 70px;
     text-align: center;
 }
+
+
 
 .services-btn {
     display: inline-block;
@@ -671,13 +679,19 @@ h1, h2, h3 {
     border-color: #126261; /* NEW SECONDARY DARK (Deep Teal) */
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
+/* 2 columns on medium screens */
+@media (max-width: 1100px){
+  .services-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
+/* 1 column on small screens */
+@media (max-width: 700px){
+  .services-grid{
+    grid-template-columns: 1fr;
+  }
+}
 
 /* --- REVIEWS SECTION (HOME PREVIEW) --- */
 
