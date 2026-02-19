@@ -2,6 +2,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap');
 
 /* --- GLOBAL STYLES --- */
+/* =========================
+   BUTTON SYSTEM (GLOBAL)
+========================= */
+
+:root{
+  --deep: #112C2C;
+  --teal: #126261;
+  --gold: #DEA327;
+  --red:  #7E0605;
+  --beige:#D0CCB4;
+}
+
+/* Base button feel */
+.btn-header,
+.btn-primary,
+.btn-outline,
+.services-btn,
+.reviews-btn,
+.about-btn,
+.contact-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 999px;
+  padding: 14px 30px;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* Lift on hover (luxury feel) */
+.btn-header:hover,
+.btn-primary:hover,
+.btn-outline:hover,
+.services-btn:hover,
+.reviews-btn:hover,
+.about-btn:hover,
+.contact-button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.20);
+}
+
+/* Primary (deep green base) */
+.btn-primary,
+.services-btn,
+.reviews-btn,
+.about-btn,
+.contact-button{
+  background: var(--deep);
+  color: var(--beige);
+  border: 1px solid rgba(222,163,39,0.35); /* gold trim */
+}
+
+/* Primary hover -> GOLD */
+.btn-primary:hover,
+.services-btn:hover,
+.reviews-btn:hover,
+.about-btn:hover,
+.contact-button:hover{
+  background: var(--gold);
+  color: var(--deep);
+  border-color: var(--gold);
+}
+
+/* Header CTA keeps same system but can stay gold by default */
+.btn-header{
+  background: var(--gold);
+  color: var(--deep);
+  border: 1px solid var(--gold);
+}
+.btn-header:hover{
+  background: var(--deep);
+  color: var(--beige);
+  border-color: var(--deep);
+}
+
+/* Outline style (secondary) */
+.btn-outline{
+  background: transparent;
+  color: var(--deep);
+  border: 1px solid rgba(17,44,44,0.35);
+}
+
+/* Outline hover -> DEEP RED (nice accent) */
+.btn-outline:hover{
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+
+/* Make form button not weirdly tall */
+.contact-button{
+  width: 100%;
+  border-radius: 12px; /* looks better for forms */
+}
 
 body {
     /* Keeping the original image */
@@ -1012,88 +1115,66 @@ h1, h2, h3 {
 }
 
 
-/* --- REVIEWS.HTML SPECIFIC STYLES (Full Reviews Page) --- */
+/* =========================
+   REVIEWS CARDS (PALETTE)
+========================= */
 
-.full-reviews-section {
-    width: 100%;
-    /* Similar full-page visual weight as Services/Portfolio sections */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    /* NEW PRIMARY BACKGROUND */
-    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%);
+.full-reviews-section{
+  background: #D0CCB4; /* beige */
 }
 
-.full-reviews-inner {
-    /* Reusing the large, centered card design */
-    width: 95%;
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 180px 140px;
-    background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
-    border-radius: 18px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
-    /* NEW PRIMARY ACCENT */
-    border: 1px solid rgba(222, 163, 39, 0.25);
+.full-reviews-inner{
+  background: rgba(208,204,180,0.55); /* soft beige glass */
+  border: 1px solid rgba(222,163,39,0.20); /* gold */
 }
 
-.full-reviews-grid {
-    display: grid;
-    /* Two-column layout for detailed review cards */
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 40px;
+/* Actual cards */
+.full-review-card{
+  background: #112C2C;           /* deep green */
+  color: #D0CCB4;                /* beige text */
+  border: 1px solid rgba(222,163,39,0.22); /* gold outline */
+  box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+  border-radius: 18px;
 }
 
-.full-review-card {
-    background: #ffffff; /* Keeping white for sharp card contrast */
-    border-radius: 18px;
-    padding: 30px;
-    border: 1px solid rgba(0,0,0,0.04);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    height: 100%; 
+/* Image container */
+.review-photo-container{
+  border: 1px solid rgba(222,163,39,0.28);
+  background: rgba(18,98,97,0.25); /* teal tint */
+  border-radius: 14px;
+  overflow: hidden;
 }
 
-/* Image section for the review's associated event photo */
-.review-photo-container {
-    margin-bottom: 25px;
-    border-radius: 12px;
-    overflow: hidden;
-    /* Optional: Add a gold outline to emphasize the event photo - NEW PRIMARY ACCENT */
-    border: 4px solid rgba(222, 163, 39, 0.2); 
+/* If image fails to load, keep it looking intentional */
+.review-photo-container img{
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  background: rgba(18,98,97,0.18); /* fallback */
 }
 
-.review-photo-container img {
-    width: 100%;
-    height: 350px; 
-    object-fit: cover;
-    display: block;
+/* Stars */
+.full-review-stars{
+  color: #DEA327; /* gold */
 }
 
-/* Text and metadata section */
-.full-review-stars {
-    font-size: 28px;
-    letter-spacing: 4px;
-    color: #DEA327; /* NEW PRIMARY ACCENT */
-    margin-bottom: 15px;
+/* Review text */
+.full-review-text{
+  color: rgba(208,204,180,0.92); /* beige */
 }
 
-.full-review-text {
-    font-size: 22px;
-    line-height: 1.7;
-    color: #444;
-    margin-bottom: 20px;
-    flex-grow: 1; 
+/* Name/label */
+.full-review-name{
+  color: #72AEA6; /* teal */
 }
 
-.full-review-name {
-    font-size: 20px;
-    font-weight: 500;
-    color: #2b2b2b;
-    margin-top: auto; 
+/*hover lift */
+.full-review-card:hover{
+  transform: translateY(-6px);
+  transition: 0.25s ease;
+  border-color: #DEA327;
+  box-shadow: 0 26px 70px rgba(0,0,0,0.35);
 }
 
 /* Responsive adjustments */
