@@ -1500,68 +1500,95 @@ h1, h2, h3 {
 
 /* --- CONTACT.HTML SPECIFIC STYLES --- */
 
-.contact-section {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    /* NEW PRIMARY BACKGROUND */
-    background: linear-gradient(135deg, rgba(208, 204, 180, 0.98) 0%, rgba(208, 204, 180, 0.98) 100%);
+.contact-section{
+  background: #112C2C; /* deep green like other dark sections */
+  padding: 110px 20px;
 }
 
-.contact-inner {
-    width: 95%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 100px 100px;
-    background: rgba(245, 241, 235, 0.96); /* Lighter Cream Variant */
-    border-radius: 18px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
-    /* NEW PRIMARY ACCENT */
-    border: 1px solid rgba(222, 163, 39, 0.25);
+.contact-inner{
+  max-width: 1300px;
+  margin: 0 auto;
+
+  background: rgba(208,204,180,0.92); /* beige card */
+  border: 1px solid rgba(222,163,39,0.25);
+  border-radius: 18px;
+
+  box-shadow: 0 28px 70px rgba(0,0,0,0.35);
+  padding: 70px 50px;
+}
+/* 2-column layout desktop */
+.contact-form-grid{
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: start;
 }
 
-.contact-form-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 50px;
+@media (max-width: 900px){
+  .contact-inner{ padding: 40px 20px; }
+  .contact-form-grid{ grid-template-columns: 1fr; }
 }
 
-.contact-info {
-    text-align: center;
-    padding: 20px;
-    background: #fdfaf7; /* Very light cream for info box */
-    border-radius: 12px;
-    /* NEW PRIMARY ACCENT */
-    border: 1px solid rgba(222, 163, 39, 0.1); 
+.contact-info{
+  background: #112C2C;
+  border: 1px solid rgba(222,163,39,0.22);
+  border-radius: 16px;
+  padding: 34px 26px;
+  color: #D0CCB4;
+  text-align: left;
 }
 
-.contact-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    color: #DEA327; /* NEW PRIMARY ACCENT */
-    margin-bottom: 15px;
+.contact-info h3{
+  color: #DEA327;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
 
-.contact-info p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #555;
+.contact-info p{
+  color: rgba(208,204,180,0.90);
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
-.contact-info a {
-    color: #444;
-    text-decoration: none;
-    transition: color 0.3s;
+.contact-info a{
+  color: #72AEA6;
+  text-decoration: none;
 }
 
-.contact-info a:hover {
-    color: #DEA327; /* NEW PRIMARY ACCENT */
+.contact-info a:hover{
+  color: #DEA327;
 }
 
+.contact-info .social-links a{
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(208,204,180,0.08);
+  border: 1px solid rgba(222,163,39,0.22);
+  overflow: hidden;
+}
+.contact-info .social-links a img{
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.contact-form-container{
+  background: rgba(245,241,235,0.96);
+  border: 1px solid rgba(17,44,44,0.12);
+  border-radius: 16px;
+  padding: 34px 26px;
+}
+
+.contact-form-container h2{
+  color: #112C2C;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
 /* Form Styles */
 .inquiry-form {
     padding: 30px;
@@ -1569,41 +1596,41 @@ h1, h2, h3 {
     background: #fff;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
-
+.form-subtext{
+  color: rgba(17,44,44,0.78);
+  margin-bottom: 22px;
+}
 .form-group {
     margin-bottom: 25px;
 }
 
-.form-group label {
-    display: block;
-    font-size: 16px;
-    font-weight: 500;
-    color: #444;
-    margin-bottom: 8px;
+.form-group label{
+  color: #112C2C;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
 }
 
 .form-group input,
 .form-group textarea,
-.form-group select { /* ADDED select for consistency */
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    background-color: #fcfcfc; /* Slight off-white background for input */
+.form-group select{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(17,44,44,0.18);
+  background: rgba(208,204,180,0.22);
+  font-size: 16px;
 }
+
 
 .form-group input:focus,
 .form-group textarea:focus,
-.form-group select:focus {
-    border-color: #DEA327; /* Gold accent */
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(222, 163, 39, 0.2); /* Gold glow */
+.form-group select:focus{
+  outline: none;
+  border-color: #DEA327;
+  box-shadow: 0 0 0 3px rgba(222,163,39,0.22);
+  background: rgba(208,204,180,0.30);
 }
-
 /* Styling for the Send Request button */
 .contact-button {
     width: 100%;

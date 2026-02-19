@@ -48,14 +48,14 @@
     </header>
 
     <div class="nav-mobile-overlay">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="about.html">About</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="reviews.html">Reviews</a>
-  <a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn-header">Book Consultation</a>
-</div>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn-header">Book Consultation</a>
+    </div>
 
     <main>
         <!-- CONTACT HERO SECTION (Consistent with other pages) -->
@@ -112,9 +112,11 @@
                             your perfect event.</p>
 
                         <form name="contact-v2" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-                            data-netlify-recaptcha="true">
-                            <input type="hidden" name="_next" value="/success.html" />
-                            
+                            data-netlify-recaptcha="true" action="/success.html">
+
+                            <input type="hidden" name="form-name" value="contact-v2">
+
+
                             <p style="display: none;">
                                 <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
                             </p>
@@ -180,48 +182,11 @@
         </section>
     </main>
 
-    <script>
-        function handleFormSubmit(event) {
-            event.preventDefault(); // Stop the default form submission
-
-            const form = document.getElementById('inquiryForm');
-            const responseDiv = document.getElementById('formResponse');
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-
-            // Construct the email body
-            const subject = encodeURIComponent(`New Event Inquiry from ${name}`);
-            let body = `Hello Sameea,\n\nI am writing to inquire about your event planning services.\n\n`;
-            body += `--- Client Details ---\n`;
-            body += `Name: ${name}\n`;
-            body += `Email: ${email}\n`;
-            if (phone) {
-                body += `Phone: ${phone}\n`;
-            }
-            body += `\n--- Message ---\n`;
-            body += message;
-
-            const mailtoLink = `mailto:humzacheema99@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
-
-            // Show the response message
-            responseDiv.textContent = "Thank you for your inquiry! Please click OK to open your email application and send the pre-filled message.";
-            responseDiv.classList.add('show');
-
-            // Open the email client after a brief delay for the user to read the success message
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-            }, 500);
-
-            // Reset the form after the action
-            form.reset();
-        }
-    </script>
+    <!-- FOOTER -->
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
+
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul>
@@ -240,19 +205,25 @@
                 <p><a href="tel:+16477071964">+1 (647) 707-1964</a></p>
             </div>
 
-            <div class="social-links" style="margin-top: 15px;">
-                <a href="https://www.instagram.com/raunakcurated" target="_blank" title="Instagram">
-                    <img src="assets/photos/instagram.png" alt="Instagram Icon">
-                </a>
-                <a href="https://www.facebook.com/raunakcurated" target="_blank" title="Facebook">
-                    <img src="assets/photos/facebook.png" alt="Facebook Icon">
-                </a>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/raunakcurated" target="_blank" rel="noopener" title="Instagram">
+                        <img src="assets/photos/instagram.png" alt="Instagram Icon">
+                    </a>
+                    <a href="https://www.facebook.com/raunakcurated" target="_blank" rel="noopener" title="Facebook">
+                        <img src="assets/photos/facebook.png" alt="Facebook Icon">
+                    </a>
+                </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2025 RaunaKcurated. All rights reserved.</p>
-            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 RaunaKcurated. All rights reserved.</p>
+        </div>
     </footer>
+
 
     <script>
         // Mobile Menu Toggle
