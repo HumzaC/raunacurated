@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquiry Received! | RaunaKcurated</title>
+
+    <title>Inquiry Received | Raunak Curated</title>
+    <meta name="description"
+        content="Thank you for reaching out to Raunak Curated. Your inquiry has been received and we will be in touch shortly.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <header class="header">
@@ -16,9 +24,10 @@
             </ul>
         </nav>
 
-        <a href="index.html" class="logo-link">
-            <div class="logo">Rauna<span>K</span>curated</div>
+        <a href="index.html" class="logo-link" aria-label="Raunak Curated home">
+            <div class="logo">Raunak <span class="logo-accent">Curated</span></div>
         </a>
+
         <nav class="nav-right">
             <ul>
                 <li><a href="about.html">About</a></li>
@@ -29,44 +38,47 @@
             <a href="contact.html" class="btn-header">Book Consultation</a>
         </nav>
 
-        <div class="hamburger">
+        <button class="hamburger" aria-label="Open menu">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </header>
-<div class="nav-mobile-overlay">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="about.html">About</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="reviews.html">Reviews</a>
-  <a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn-header">Book Consultation</a>
-</div>
+
+    <div class="nav-mobile-overlay">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn-header">Book Consultation</a>
+    </div>
+
     <main>
         <section class="success-message-section">
             <div class="success-card">
-                <div class="success-icon">✨</div> 
-                
-                <h2>Thank You! Your Inquiry is Received.</h2>
-                
+                <div class="success-icon">&#10024;</div>
+
+                <h2>Thank you! Your inquiry is received.</h2>
+
                 <p class="success-subtext">
-                    We appreciate you reaching out to RaunaKcurated. We have successfully received your message and will review your request shortly.
+                    We appreciate you reaching out to Raunak Curated. Your message has been received
+                    and our team will review your request shortly.
                 </p>
 
                 <p>
-                    We aim to respond to all inquiries within 1-2 business days. Please check your email inbox for a personal reply from our team.
+                    We aim to respond to all inquiries within 1&ndash;2 business days. Please check
+                    your email inbox for a personal reply from our team.
                 </p>
 
                 <div class="success-actions">
                     <a href="index.html" class="btn-primary">Return to Homepage</a>
-                    <a href="portfolio.html" class="btn-secondary">View Our Portfolio</a>
+                    <a href="portfolio.html" class="btn-outline">View Our Portfolio</a>
                 </div>
             </div>
         </section>
     </main>
-    
 
     <footer class="footer">
         <div class="footer-content">
@@ -78,7 +90,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
 
@@ -88,30 +100,25 @@
                 <p><a href="tel:+16477071964">+1 (647) 707-1964</a></p>
             </div>
 
-            <div class="social-links" style="margin-top: 15px;">
-                <a href="https://www.instagram.com/raunakcurated" target="_blank" title="Instagram">
-                    <img src="assets/photos/instagram.png" alt="Instagram Icon">
-                </a>
-                <a href="https://www.facebook.com/raunakcurated" target="_blank" title="Facebook">
-                    <img src="assets/photos/facebook.png" alt="Facebook Icon">
-                </a>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/raunakcurated" target="_blank" rel="noopener" title="Instagram">
+                        <img src="assets/photos/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/raunakcurated" target="_blank" rel="noopener" title="Facebook">
+                        <img src="assets/photos/facebook.png" alt="Facebook">
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 RaunaKcurated. All rights reserved.</p>
+            <p>&copy; 2025 Raunak Curated. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const hamburger = document.querySelector(".hamburger");
-        const overlay = document.querySelector(".nav-mobile-overlay");
-
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            overlay.classList.toggle("active");
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
